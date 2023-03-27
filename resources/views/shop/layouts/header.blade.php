@@ -47,11 +47,11 @@
                 <div class="col-md-5">
                     <div class="search">
                         <div class="header_search search_form">
-                            <form class="input-group search-bar search_form" action="search" method="get" role="search">
-                                <input type="search" name="query" value="" placeholder="Tìm kiếm..."
+                            <form class="input-group search-bar search_form" method="get" action="{{ route('search') }}" >
+                                <input type="search" name="search" value="{{ request('search') }}" placeholder="Tìm kiếm..."
                                        class="input-group-field st-default-search-input search-text" autocomplete="off">
                                 <span class="input-group-btn">
-			<button class="btn icon-fallback-text">
+			<button type="submit" class="btn icon-fallback-text">`
 				<i class="fa fa-search"></i>
 			</button>
 		</span>

@@ -49,8 +49,8 @@
                             @foreach($posts as $post)
                                 <div class="col-lg-6">
                                     <div class="bsingle__post mb-50">
-                                        <div class="bsingle__post-thumb">
-                                            <img
+                                        <div class="bsingle__post-thumb text-center">
+                                            <img style="max-width: 300px"
                                                 src="{{ $post->getFirstMediaUrl('image') ?? '/backend/global_assets/images/placeholders/placeholder.jpg' }}"
                                                 alt="">
                                         </div>

@@ -4,7 +4,7 @@
             <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
                 <div class="breadcrumb-wrap text-center">
                     <div class="breadcrumb-title mb-30 text-left">
-                        <h2>{{ $name ?? null }}</h2>
+                        <h1>{{ $name ?? null }}</h1>
                     </div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb text-left">
