@@ -71,10 +71,6 @@
                 <button type="button" data-toggle="modal" data-target="#hotlineModal"><i class="fa fa-phone"></i>
                 </button>
             </div>
-
-
-            <div class="back-to-top"><i class="fa fa-arrow-circle-up"></i></div>
-
         </div>
     </div>
 

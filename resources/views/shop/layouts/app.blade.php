@@ -21,7 +21,9 @@
             {{ setting('custom_styles') }}
         </style>
     @endif
-<!-- Common Css -->
+    <!-- Common Css -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('common/toastr/toastr.min.css') }}">
     <!-- End Common Css-->
     <link rel="preload" as="style" type="text/css" href="{{ asset('sapo/assets/bootstrap.scss.css') }}" onload="this.rel='stylesheet'"/>
@@ -31,6 +33,9 @@
     <link rel="preload" as="style" type="text/css" href="{{ asset('sapo/assets/ant-du-lich.scss.css') }}" onload="this.rel='stylesheet'"/>
     <link href="{{ asset('sapo/assets/ant-du-lich.scss.css') }}" rel="stylesheet" type="text/css" media="all"/>
     @stack('styles')
+
+    @stack('scripts_breadcrumb')
+
 </head>
 <body>
 @include('shop.layouts.header')

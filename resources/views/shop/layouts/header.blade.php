@@ -81,7 +81,7 @@
                     <ul id="nav" class="nav container">
 
 
-                        <li class="nav-item active"><a class="nav-link" href="">Trang chủ</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}">Trang chủ</a></li>
 
                         @if($menuHeaders->isNotEmpty())
                             @foreach($menuHeaders as $menu)
@@ -154,14 +154,8 @@
 
 
                 <li class="ng-scope">
-                    <a href="">Trang chủ</a>
+                    <a href="{{ route('home') }}">Trang chủ</a>
                 </li>
-
-
-                <li class="ng-scope">
-                    <a href="gioi-thieu">Giới thiệu</a>
-                </li>
-
 
                 @if($menuHeaders->isNotEmpty())
                     @foreach($menuHeaders as $menu)

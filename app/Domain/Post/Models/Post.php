@@ -50,7 +50,7 @@ class Post extends Model implements HasMedia
 
     public function url()
     {
-        return route('post.show', $this->slug);
+        return route('post.show', [$this->taxons->first()->slug ?? 'bai-viet', $this->slug]);
     }
 
     public function user()

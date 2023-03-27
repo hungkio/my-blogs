@@ -42,12 +42,18 @@
                         @else
                             @foreach($posts as $post)
                                 <div class="bsingle__post mb-50">
-                                    <div class="bsingle__post-thumb">
-                                        <img
+                                    <div class="bsingle__post-thumb w-30 float-left">
+                                        <img class="mt-30"
                                             src="{{ $post->getFirstMediaUrl('image') ?? '/backend/global_assets/images/placeholders/placeholder.jpg' }}"
                                             alt="">
                                     </div>
-                                    <div class="bsingle__content">
+                                    <div class="bsingle__content  float-left w-70 pl-1">
+                                        <h2>
+                                            <a href="{{ $post->url() }}">
+                                                {{ $post->title }}
+                                            </a>
+                                        </h2>
+                                        <p>{!! $post->description !!}</p>
                                         <div class="meta-info">
                                             <ul>
                                                 <li><a href="javascript:void(0)"> <i
@@ -55,17 +61,12 @@
                                                     </a></li>
                                             </ul>
                                         </div>
-                                        <h2>
-                                            <a href="{{ $post->url() }}">
-                                                {{ $post->title }}
-                                            </a>
-                                        </h2>
-                                        <p>{!! $post->description !!}</p>
                                         <div class="slider-btn">
                                             <a href="{{ $post->url() }}" class="btn ss-btn" data-animation="fadeInRight"
                                                data-delay=".8s">{{ __('Đọc thêm') }} <i
                                                     class="fas fa-chevron-right"></i></a>
                                         </div>
+
                                     </div>
                                 </div>
                             @endforeach
@@ -124,23 +125,6 @@
                                             @endforeach
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="widget mb-40">
-                                    <div class="widget-title text-center">
-                                        <h4>{{ __('Đăng ký nhận bản tin') }}</h4>
-                                    </div>
-                                    <form class="widget__post" action="{{ route('contact.subscribe_email') }}" method="post"
-                                          id="subscribe-email-form">
-                                        @csrf
-                                        <div class="contact-field p-relative c-subject mb-20">
-                                            <input type="email" name="email"
-                                                   placeholder="{{ __('Nhập Email (*)') }}">
-                                        </div>
-                                        <div class="slider-btn text-center">
-                                            <button type="submit" class="btn ss-btn" data-animation="fadeInRight"
-                                                    data-delay=".8s">{{ __('Đăng ký') }}</button>
-                                        </div>
-                                    </form>
                                 </div>
                             @endif
                         </aside>

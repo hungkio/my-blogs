@@ -103,7 +103,7 @@
                                         @endforeach
                                     @endif
 
-                                    @if($category->posts && count($category->posts) > 1)
+                                    @if(@$category->posts && count($category->posts) > 1)
                                         <div class="content-blog-index col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             @foreach($category->posts as $key => $post)
                                                 @if($key != 0)

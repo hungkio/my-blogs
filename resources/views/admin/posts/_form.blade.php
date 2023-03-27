@@ -181,9 +181,7 @@
                                         <div style="line-height: 36px;">
                                             <span id="slug-value" class="text-primary">
                                                 @if($post->id)
-                                                    {{route('post.show', $post->slug)}}
-                                                @else
-                                                    {{route('post.show')}}/
+                                                    {{route('post.show', [$post->taxons->first()->slug ?? 'bai-viet', $post->slug])}}
                                                 @endif
                                             </span>
                                         </div>

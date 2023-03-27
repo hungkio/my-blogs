@@ -85,13 +85,13 @@ class MenuItem extends Model implements HasMedia
     {
         $url = '';
         if ($this->type == self::TYPE_CATEGORY) {
-            $url = route('post.index')."?category=".$this->taxon->slug ?? '';
+            $url = route('post.index', $this->taxon->slug ?? '');
         }
         if ($this->type == self::TYPE_PAGE) {
             $url = route('page.show', $this->page->slug ?? '');
         }
         if ($this->type == self::TYPE_POST) {
-            $url = route('post.show', $this->post->slug ?? '');
+            $url = route('post.show', [$this->taxon->slug ?? '', $this->post->slug ?? '']);
         }
         if ($this->type == self::TYPE_LINK) {
             $url = $this->item_content ?? '';

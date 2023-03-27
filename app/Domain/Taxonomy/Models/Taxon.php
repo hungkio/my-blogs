@@ -66,6 +66,7 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
  */
 class Taxon extends Model implements HasMedia
 {
+
     use IsSorted;
     use InteractsWithMedia;
     use HasRecursiveRelationships;
@@ -126,9 +127,12 @@ class Taxon extends Model implements HasMedia
 
     public function urlPost()
     {
-        return route('post.index')."?category=$this->slug";
+        return route('post.index', $this->slug);
     }
 
+    public function posts() {
+        return $this->hasManyThrough(Taxonable);
+    }
     public function childs(){
         return $this->hasMany(Taxon::class, 'parent_id', 'id');
     }

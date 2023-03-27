@@ -1,24 +1,21 @@
 <?php
-
 namespace App\Http\Controllers\Shop;
 
 use App\Domain\Post\Models\Post;
 use App\Domain\Taxonomy\Models\Taxon;
 use App\Enums\PostState;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cache;
 use Spatie\SchemaOrg\Schema;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Taxon $taxon)
     {
-        if (request('category')){
-
+        if ($taxon->slug){
             $taxons = self::taxons();
             $postNews = self::newEstPost();
 
-            $category = Taxon::whereSlug(request('category'))->with(['ancestors' => function ($sub) {
+            $category = Taxon::whereSlug($taxon->slug)->with(['ancestors' => function ($sub) {
                 $sub->whereNotNull('parent_id')->breadthFirst();
             }])->firstOrFail();
 
@@ -30,7 +27,7 @@ class PostController extends Controller
         abort(404);
     }
 
-    public function show(Post $post)
+    public function show($unuse, Post $post)
     {
         $post->increment('view');
         $taxons = self::taxons();
@@ -69,11 +66,11 @@ class PostController extends Controller
     public function schemaMarkup($post)
     {
         return Schema::article()
-            ->url(route('post.show', $post->slug))
+            ->url(route('post.show', [$post->taxons->first()->slug ?? 'bai-viet', $post->slug]))
             ->author($post->user->fullname ?? null)
             ->mainEntityOfPage(
                 Schema::WebPage()
-                    ->id(route('post.show', $post->slug))
+                    ->id(route('post.show', [$post->taxons->first()->slug ?? 'bai-viet', $post->slug]))
             )
             ->image(
                 Schema::imageObject()
