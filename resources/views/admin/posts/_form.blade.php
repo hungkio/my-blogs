@@ -216,7 +216,7 @@
     <script>
         $(document).on('keyup', '#slug', function () {
             let slug = $('#slug').val()
-            let fullLink = '{{route('post.show')}}' +'/'+ slug;
+            let fullLink = '{{route('post.show', $post->taxons->first()->slug ?? 'bai-viet')}}' +'/'+ slug;
             $('#slug-value').html(fullLink);
         })
     </script>
