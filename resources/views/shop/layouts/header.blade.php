@@ -1,106 +1,4 @@
 <!-- HEADER -->
-{{--<header class="header-area">--}}
-{{--    <div class="header-top second-header d-none d-md-block">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row align-items-center">--}}
-{{--                <div class="col-lg-3 col-md-3 d-none d-lg-block">--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-3 col-md-8 d-none  d-md-block">--}}
-{{--                    <div class="header-cta">--}}
-{{--                        <ul>--}}
-{{--                            <li>--}}
-{{--                                <i class="icon dripicons-mail"></i>--}}
-{{--                                <span>{{ setting('store_email') }}</span>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <i class="icon dripicons-phone"></i>--}}
-{{--                                <span>{{ setting('store_phone') }}</span>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-6 col-md-3 d-none d-lg-block">--}}
-{{--                    <form class="input-group float-left w-75" method="get" action="{{ route('search') }}">--}}
-{{--                        <input type="text" name="search" value="{{ request('search') }}" class="form-control" placeholder="{{ __('Tìm kiếm bài viết, trang...') }}"--}}
-{{--                               aria-label="{{ __('Tìm kiếm bài viết, trang...') }}" aria-describedby="basic-addon2">--}}
-{{--                        <div class="input-group-append" style="height: calc(1.5em + 0.75rem + 0.2rem);">--}}
-{{--                            <button class="btn btn-outline-secondary" type="submit" style="line-height: 25%;">{{ __('Tìm kiếm') }}--}}
-{{--                            </button>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                    <div class="header-social text-right">--}}
-{{--                        <span>--}}
-{{--                            <a href="{{ setting('link_facebook', '') }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>--}}
-{{--                            <a href="{{ setting('link_youtube', '') }}" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a>--}}
-{{--                       </span>--}}
-{{--                        <!--  /social media icon redux -->--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div id="header-sticky" class="menu-area">--}}
-{{--        <div class="container">--}}
-{{--            <div class="second-menu">--}}
-{{--                <div class="row align-items-center">--}}
-{{--                    <div class="col-xl-2 col-lg-2">--}}
-{{--                        <div class="logo">--}}
-{{--                            @if(setting('store_logo'))--}}
-{{--                                    <a href="{{ route('home') }}"><img--}}
-{{--                                    src="{{ \Storage::url(setting('store_logo')) }}"--}}
-{{--                                    alt="logo"></a>--}}
-{{--                            @else--}}
-{{--                                <a href="{{ route('home') }}" title="{{ setting('store_name') }}">--}}
-{{--                                    <span>{{ mb_strimwidth(setting('store_name'), 0, 15) }}</span>--}}
-{{--                                </a>--}}
-{{--                            @endif--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-xl-8 col-lg-8">--}}
-{{--                        <div class="main-menu text-right pr-15">--}}
-{{--                            <nav id="mobile-menu">--}}
-{{--                                <ul>--}}
-{{--                                    <li class="has-sub">--}}
-{{--                                        <a href="{{ route('home') }}">{{ __('Trang chủ') }}</a>--}}
-{{--                                    </li>--}}
-{{--                                    @if($menuHeaders->isNotEmpty())--}}
-{{--                                        @foreach($menuHeaders as $menu)--}}
-{{--                                            <li class="{{ $menu->childs->count() > 0 ? 'has-sub' : '' }}">--}}
-{{--                                                <a href="{{ $menu->urlMenu() }}"--}}
-{{--                                                   class="@if(request()->fullUrl() == $menu->urlMenu())--}}
-{{--                                                       active @endif">{{ $menu->name }}</a>--}}
-{{--                                                <ul>--}}
-{{--                                                    @if($menu->childs->count() > 0)--}}
-{{--                                                        @foreach($menu->childs as $child)--}}
-{{--                                                            <li>--}}
-{{--                                                                <a href="{{ $child->urlMenu() }}"--}}
-{{--                                                                   class="@if(request()->fullUrl() == ($child->urlMenu()))--}}
-{{--                                                                       active @endif">{{ $child->name }}</a>--}}
-{{--                                                            </li>--}}
-{{--                                                        @endforeach--}}
-{{--                                                    @endif--}}
-{{--                                                </ul>--}}
-{{--                                            </li>--}}
-{{--                                        @endforeach--}}
-{{--                                    @endif--}}
-{{--                                </ul>--}}
-{{--                            </nav>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-xl-2 col-lg-2 d-none d-lg-block">--}}
-{{--                        <a href="{{ route('page.contact') }}" class="top-btn">{{ __('Liên hệ') }} <i--}}
-{{--                                class="fas fa-chevron-right"></i></a>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-12">--}}
-{{--                        <div class="mobile-menu"></div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</header>--}}
-
 <header class="header header-index">
     <div class="topbar hidden-sm hidden-xs">
         <div class="container">
@@ -108,23 +6,21 @@
                 <div class="col-md-6">
                     <ul class="top-info">
 
-                        <li><i class="fa fa-phone color-x" aria-hidden="true"></i> <a href="tel:19006750">1900 6750</a>
+                        <li><i class="fa fa-phone color-x" aria-hidden="true"></i> <a href="tel:{{ setting('store_phone') }}">{{ setting('store_phone') }}</a>
                         </li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:support@sapo.vn">support@sapo.vn</a>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:support@sapo.vn">{{ setting('store_email') }}</a>
                         </li>
 
                     </ul>
                 </div>
                 <div class="col-md-6">
+{{--                    <ul class="list-inline f-right ul-acccount">--}}
 
-                    <ul class="list-inline f-right ul-acccount">
+{{--                        <li><a href="account/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>--}}
+{{--                        <li><a href="account/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a>--}}
+{{--                        </li>--}}
 
-                        <li><a href="account/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>
-                        <li><a href="account/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a>
-                        </li>
-
-                    </ul>
-
+{{--                    </ul>--}}
                 </div>
             </div>
         </div>
@@ -140,8 +36,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="logo">
-                        <a href="" class="logo-wrapper ">
-                            <img src="/sapo/assets/logo.png" alt="logo Ant Du lịch">
+                        <a href="{{ route('home') }}" class="logo-wrapper ">
+                            <img src="{{ \Storage::url(setting('store_logo')) }}" alt="logo Ant Du lịch">
                         </a>
                     </div>
                     <a href="cart" class="icon-option-cart hidden-lg hidden-md hidden">
@@ -152,7 +48,7 @@
                     <div class="search">
                         <div class="header_search search_form">
                             <form class="input-group search-bar search_form" action="search" method="get" role="search">
-                                <input type="search" name="query" value="" placeholder="Tìm kiếm tour..."
+                                <input type="search" name="query" value="" placeholder="Tìm kiếm..."
                                        class="input-group-field st-default-search-input search-text" autocomplete="off">
                                 <span class="input-group-btn">
 			<button class="btn icon-fallback-text">
@@ -167,12 +63,10 @@
                     <div class="top-fun">
                         <div class="hotline">
                             <img src="/sapo/assets/hotline.svg"
-                                 alt="Tổng đài miễn phí"/>
+                                 alt="Liên hệ"/>
                             <div class="hotline-text">
 
-                                <a href="tel:19006750">1900 6750</a>
-
-                                <span>Tổng đài miễn phí</span>
+                                <a href="tel:{{ setting('store_phone') }}">Liên hệ</a>
                             </div>
                         </div>
                     </div>
@@ -192,32 +86,33 @@
                         @if($menuHeaders->isNotEmpty())
                             @foreach($menuHeaders as $menu)
                                 <li class="nav-item {{ $menu->childs->count() > 0 ? 'has-mega' : '' }}">
-                                    <a href="{{ $menu->urlMenu() }}" class="nav-link @if(request()->fullUrl() == $menu->urlMenu())
-                                        active @endif">{{ $menu->name }}
+                                    <a href="{{ $menu->urlMenu() }}"
+                                       class="nav-link @if(request()->fullUrl() == $menu->urlMenu())
+                                           active @endif">{{ $menu->name }}
                                         @if($menu->childs->count() > 0)
                                             <i class="fa fa-angle-right" data-toggle="dropdown"></i>
                                         @endif
                                     </a>
                                     @if($menu->childs->count() > 0)
-                                    <div class="mega-content">
-                                        <div class="level0-wrapper2">
-                                            <div class="nav-block nav-block-center">
-                                                <ul class="level0">
-                                                    @if($menu->childs->count() > 0)
-                                                        @foreach($menu->childs as $child)
-                                                            <li class="level1 parent item">
-                                                                <h2 class="h4">
-                                                                    <a href="{{ $child->urlMenu() }}"
-                                                                       class="@if(request()->fullUrl() == ($child->urlMenu()))
-                                                                        active @endif"><span>{{ $child->name }}</span></a>
-                                                                </h2>
-                                                            </li>
-                                                        @endforeach
-                                                    @endif
-                                                </ul>
+                                        <div class="mega-content">
+                                            <div class="level0-wrapper2">
+                                                <div class="nav-block nav-block-center">
+                                                    <ul class="level0">
+                                                        @if($menu->childs->count() > 0)
+                                                            @foreach($menu->childs as $child)
+                                                                <li class="level1 parent item">
+                                                                    <h2 class="h4">
+                                                                        <a href="{{ $child->urlMenu() }}"
+                                                                           class="@if(request()->fullUrl() == ($child->urlMenu()))
+                                                                               active @endif"><span>{{ $child->name }}</span></a>
+                                                                    </h2>
+                                                                </li>
+                                                            @endforeach
+                                                        @endif
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endif
                                 </li>
                             @endforeach
@@ -231,3 +126,66 @@
 </header>
 
 <!-- Header-end -->
+
+{{--Header mobile--}}
+<div class="c-menu--slide-left">
+    <div class="la-nav-top-login">
+        <div class="la-avatar-nav p-relative text-center">
+            <a href="account">
+                <img class="img-responsive" src="{{ \Storage::url(setting('store_logo')) }}"
+                     alt="avatar">
+            </a>
+{{--            <div class="la-hello-user-nav ng-scope">Xin chào</div>--}}
+            <img id="close-nav" class="c-menu__close"
+                 src="/sapo/assets/ic-close-menu.png" alt="close nav">
+        </div>
+        <div class="la-action-link-nav text-center">
+
+{{--            <a href="account/login" class="uppercase">ĐĂNG NHẬP</a>--}}
+{{--            <a href="account/register" class="uppercase">ĐĂNG KÝ</a>--}}
+
+        </div>
+    </div>
+    <div class="la-scroll-fix-infor-user">
+        <!--CATEGORY-->
+        <div class="la-nav-menu-items">
+            <div class="la-title-nav-items">Tất cả danh mục</div>
+            <ul class="la-nav-list-items">
+
+
+                <li class="ng-scope">
+                    <a href="">Trang chủ</a>
+                </li>
+
+
+                <li class="ng-scope">
+                    <a href="gioi-thieu">Giới thiệu</a>
+                </li>
+
+
+                @if($menuHeaders->isNotEmpty())
+                    @foreach($menuHeaders as $menu)
+                        <li class="ng-scope {{ $menu->childs->count() > 0 ? 'ng-has-child1' : '' }}">
+                            <a href="{{ $menu->urlMenu() }}">{{ $menu->name }}
+                                @if($menu->childs->count() > 0)
+                                    <i class="fa fa-plus fa1" aria-hidden="true"></i>
+                                @endif
+                            </a>
+
+                            @if($menu->childs->count() > 0)
+                                <ul class="ul-has-child1">
+                                    @foreach($menu->childs as $child)
+                                        <li class="ng-scope ng-has-child2">
+                                            <a href="{{ $child->urlMenu() }}">{{ $child->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endforeach
+                @endif
+
+            </ul>
+        </div>
+    </div>
+</div>

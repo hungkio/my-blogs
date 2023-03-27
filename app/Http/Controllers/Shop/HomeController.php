@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Shop;
 use App\Domain\LogSearch\Models\LogSearch;
 use App\Domain\Page\Models\Page;
 use App\Domain\Post\Models\Post;
+use App\Domain\Taxonomy\Models\Taxon;
 use App\Enums\PostState;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
@@ -29,9 +30,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('status', PostState::Active)->latest()->limit(3)->get();
+        $categoryParent = Taxon::where('taxonomy_id', setting('post_taxonomy', 1))->whereNull('parent_id')->first();
+        $categories = Taxon::where('taxonomy_id', setting('post_taxonomy', 1))
+            ->whereNotNull('parent_id')
+            ->where('parent_id', $categoryParent->id)
+            ->get();
+        foreach ($categories as $category) {
+            $category->posts = Post::whereHas('taxons', function($q) use($category){
+                $q->where('id', $category->id);
+            })->where('status', PostState::Active)->latest()->paginate(5);
+        }
+
         $homeSchemaMarkup = $this->schemaMarkup();
-        return view('shop.home', compact('posts', 'homeSchemaMarkup'));
+        return view('shop.home', compact('categories', 'homeSchemaMarkup'));
     }
 
     public function search(SearchRequest $request)

@@ -14,21 +14,28 @@
     </title>
     @yield('seo')
 
-    <link rel="icon" href="{{ setting('store_favicon') ? \Storage::url(setting('store_favicon')) : '' }}" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ setting('store_favicon') ? \Storage::url(setting('store_favicon')) : '' }}"
+          type="image/gif" sizes="16x16">
     @if(setting('custom_styles'))
         <style>
             {{ setting('custom_styles') }}
         </style>
     @endif
-    <!-- Common Css -->
+<!-- Common Css -->
     <link rel="stylesheet" href="{{ asset('common/toastr/toastr.min.css') }}">
     <!-- End Common Css-->
+    <link rel="preload" as="style" type="text/css" href="{{ asset('sapo/assets/bootstrap.scss.css') }}" onload="this.rel='stylesheet'"/>
+    <link href="{{ asset('sapo/assets/bootstrap.scss.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="preload" as="style" type="text/css" href="{{ asset('sapo/assets/base.scss.css') }}" onload="this.rel='stylesheet'"/>
+    <link href="{{ asset('sapo/assets/base.scss.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="preload" as="style" type="text/css" href="{{ asset('sapo/assets/ant-du-lich.scss.css') }}" onload="this.rel='stylesheet'"/>
+    <link href="{{ asset('sapo/assets/ant-du-lich.scss.css') }}" rel="stylesheet" type="text/css" media="all"/>
     @stack('styles')
 </head>
 <body>
 @include('shop.layouts.header')
 @yield('content')
-{{--@include('shop.layouts.footer')--}}
+@include('shop.layouts.footer')
 <!-- JS here -->
 <script src="{{ asset('sapo/assets/jquery-2.2.3.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/js/popper.min.js') }}"></script>
@@ -48,8 +55,12 @@
 <script src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('frontend/js/element-in-view.js') }}"></script>
 <script src="{{ asset('frontend/js/main.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+        integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
+        integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
+        crossorigin="anonymous"></script>
 @stack('scripts')
 @if(setting('custom_scripts'))
     <script>

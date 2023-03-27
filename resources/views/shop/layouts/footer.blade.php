@@ -1,114 +1,83 @@
 <!-- Footer -->
-<footer class="footer-bg footer-p">
-    <div class="overly"><img src="{{ asset('frontend/img/an-bg/footer-bg.png') }}" alt="rest"></div>
-    <div class="footer-top pb-30" style="background-color: #ECF1FA;">
+<footer class="footer">
+    <div class="site-footer">
         <div class="container">
-            <div class="row justify-content-between">
+            <div class="footer-inner padding-top-25 padding-bottom-10">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="footer-widget foote-contact-box">
+                            <h3>Liên hệ</h3>
+                            <div class="footer-widget-content">
+                                <div class="icon">
+                                    <img src="/sapo/assets/fot_hotline.svg"
+                                         alt="Liên hệ"/>
+                                </div>
+                                <div class="info">
+                                    <p class="questions">Hỗ trợ trực tuyến 24/7!</p>
+                                    <p class="phone">
+                                        Hotline:
 
-                <div class="col-xl-3 col-lg-3 col-sm-6">
-                    <div class="footer-widget mb-30">
-                        <div class="flog mb-35">
-                            @if(setting('store_logo'))
-                                <a href="{{ route('home') }}"><img
-                                        src="{{ \Storage::url(setting('store_logo')) }}"
-                                        alt="logo"></a>
-                            @else
-                                <a href="{{ route('home') }}">
-                                    <span>{{ setting('store_name') }}</span>
-                                </a>
-                            @endif
-                        </div>
-                        <div class="footer-text mb-20">
-                            <p>{!! setting('store_description', __('LAPO chuyên cung cấp các dịch vụ website như thiết kế website chuyên nghiệp, dịch vụ bán website giá rẻ, dịch vụ thuê website, thiết kế logo, bộ nhận diện thương hiệu, dịch vụ quản trị website. Hỗ trợ chủ doanh nghiệp, chủ cửa hàng, cá nhân mở rộng phát triển kinh doanh trên internet')) !!}</p>
-                        </div>
-                        <div class="footer-social">
-                            <a href="{{ setting('link_facebook') }}" target="_blank" title="Facebook"><i
-                                    class="fab fa-facebook"></i></a>
-                            <a href="{{ setting('link_youtube') }}" target="_blank" title="Youtube"><i
-                                    class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
+                                        <a href="tel:0345281681">0345281681</a>
 
+                                    </p>
+                                    <p class="address">
 
-                <div class="col-xl-2 col-lg-2 col-sm-6">
-                    <div class="footer-widget mb-30">
-                        <div class="f-widget-title">
-                            <h5>{{ __('Liên kết') }}</h5>
-                        </div>
-                        <div class="footer-link">
-                            <ul>
-                                @if($menuFooter1->isNotEmpty())
-                                    @foreach($menuFooter1 as $menu)
-                                        <li>
-                                            <a href="{{ $menu->urlMenu() }}"><i
-                                                    class="fas fa-chevron-right"></i> {{ $menu->name }}</a>
-                                        </li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-sm-6">
-                    <div class="footer-widget mb-30">
-                        <div class="f-widget-title">
-                            <h5>{{ __('Danh mục') }}</h5>
-                        </div>
-                        <div class="footer-link">
-                            <ul>
-                                @if($menuFooter2->isNotEmpty())
-                                    @foreach($menuFooter2 as $menu)
-                                        <li>
-                                            <a href="{{ $menu->urlMenu() }}"><i
-                                                    class="fas fa-chevron-right"></i> {{ $menu->name }}</a>
-                                        </li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-sm-6">
-                    <div class="footer-widget mb-30">
-                        <div class="f-widget-title">
-                            <h5>{{ __('Liện hệ với chúng tôi') }}</h5>
-                        </div>
-                        <div class="footer-link">
-                            <div class="f-contact">
-                                <ul>
-                                    <li>
-                                        <i class="icon dripicons-phone"></i>
-                                        <span>{{ setting('store_phone') }}</span>
-                                    </li>
-                                    <li>
-                                        <i class="icon dripicons-mail"></i>
-                                        <span><a
-                                                href="mailto:{{ setting('store_email') }}">{{ setting('store_email') }}</a></span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-map-marker-alt"></i>
-                                        <span>{{ setting('store_address') }}</span>
-                                    </li>
-                                </ul>
+                                        Hà Nội, Việt Nam
+
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="copyright-text text-center">
-                        <p>{{ __('Bản quyển thuộc') }} &copy; {{ date('Y') }} <a href="{{ route('home') }}">{{ setting('store_name', 'LAPO.VN') }} {{ setting('store_slogan', 'Dịch vụ Website uy tín') }}.</a> {{ __('Được phát triển và duy trì bởi') }} <a
-                                href="https://lapo.vn" target="_blank">LAPO.VN</a></p>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="footer-widget">
+                            <h3>Danh mục</h3>
+                            <ul class="list-menu">
+
+                                <li><a href="">Trang chủ</a></li>
+
+                                <li><a href="gioi-thieu">Giới thiệu</a></li>
+
+                                @if($menuFooter2->isNotEmpty())
+                                @foreach($menuFooter2 as $menu)
+                                        <li><a href="{{ $menu->urlMenu() }}">{{ $menu->name }}</a></li>
+                                @endforeach
+                                @endif
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="copyright clearfix">
+        <div class="container">
+            <div class="inner clearfix">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <span>© Bản quyền thuộc về <b>Tutorials Việt Nam</b> <span class="s480-f">|</span> Cung cấp bởi hungkio16.9.98@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-zalo">
+                <a target="_blank" href="http://zalo.me/0345281681" title="Chat qua Zalo">
+                    <span class="ti-zalo"></span>
+                </a>
+            </div>
+
+
+            <div class="back-hotline">
+                <button type="button" data-toggle="modal" data-target="#hotlineModal"><i class="fa fa-phone"></i>
+                </button>
+            </div>
+
+
+            <div class="back-to-top"><i class="fa fa-arrow-circle-up"></i></div>
+
+        </div>
+    </div>
+
 </footer>
+
 <!-- Footer-end -->
