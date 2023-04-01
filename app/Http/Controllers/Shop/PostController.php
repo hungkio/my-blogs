@@ -59,7 +59,7 @@ class PostController extends Controller
     }
 
     public function newEstPost(){
-        $postNews = Post::where('status', PostState::Active)->take(4)->get();
+        $postNews = Post::where('status', PostState::Active)->latest()->take(4)->get();
         return $postNews;
     }
 
