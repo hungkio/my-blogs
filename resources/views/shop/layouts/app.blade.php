@@ -35,7 +35,15 @@
     @stack('styles')
 
     @stack('scripts_breadcrumb')
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLSBKKF9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-HFMLSBKKF9');
+    </script>
 </head>
 <body>
 @include('shop.layouts.header')
