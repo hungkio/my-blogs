@@ -34,7 +34,7 @@
         <section class="inner-blog pt-100 pb-50">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 col-sm-12">
                         @if($posts->count() == 0)
                             <div class="text-center">
                                 <p>{{ __('Chưa có bài viết nào !') }}</p>
@@ -76,7 +76,7 @@
                             {{ $posts->appends('category', request('category'))->links() }}
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-sm-12">
                         <aside>
                             <div class="widget mb-40">
                                 <div class="widget-title text-center">
