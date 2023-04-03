@@ -17,7 +17,10 @@ use Spatie\Sitemap\SitemapGenerator;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//SitemapGenerator::create(config('app.url')->writeToFile(public_path('sitemap.xml'));
+Route::get('sitemap', function () {
+    SitemapGenerator::create(config('app.url'))->writeToFile(public_path('sitemap.xml'));
+    return "Sitemap generated";
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tim-kiem', [HomeController::class, 'search'])->name('search');
