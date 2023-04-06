@@ -25,6 +25,7 @@ class PostDataTable extends BaseDatable
             ->editColumn('status','admin.posts._tableStatus')
             ->editColumn('created_at', fn (Post $post) => formatDate($post->created_at))
             ->editColumn('updated_at', fn (Post $post) => formatDate($post->updated_at))
+            ->editColumn('user', fn (Post $post) => $post->user->last_name ?? "dell biết ai")
             ->addColumn('action', 'admin.posts._tableAction')
             ->filterColumn('title', function($query, $keyword) {
                 $query->where('title', 'like', "%{$keyword}%");
@@ -53,6 +54,7 @@ class PostDataTable extends BaseDatable
             Column::make('view')->title(__('Lượt xem'))->width('10%'),
             Column::make('status')->title(__('Trạng thái'))->width('20%'),
             Column::make('created_at')->title(__('Thời gian tạo'))->searchable(false),
+            Column::make('user')->title(__('Tác giả'))->searchable(false),
             Column::computed('action')
                 ->title(__('Tác vụ'))
                 ->exportable(false)
