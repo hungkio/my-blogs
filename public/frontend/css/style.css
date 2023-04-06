@@ -26,3 +26,14 @@
 .img_thumb_blogs {
     text-align: center;
 }
+.details__content ol {
+    padding-left: 2em;
+}
+.details__content ul li ul {
+    list-style: outside;
+    padding-left: 2em;
+}
+.details__content ul {
+    list-style: outside;
+    padding-left: 2em;
+}
