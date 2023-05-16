@@ -33,7 +33,13 @@
     <link rel="preload" as="style" type="text/css" href="{{ asset('sapo/assets/ant-du-lich.scss.css') }}" onload="this.rel='stylesheet'"/>
     <link href="{{ asset('sapo/assets/ant-du-lich.scss.css') }}" rel="stylesheet" type="text/css" media="all"/>
     @stack('styles')
-
+    <style>
+        @media (max-width: 480px) {
+            .col-lg-4.col-sm-12 {
+                position: unset!important;
+            }
+        }
+    </style>
     @stack('scripts_breadcrumb')
 <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLSBKKF9"></script>
